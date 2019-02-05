@@ -21,20 +21,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. 
 '''
 import discord
-from discord.ext import commands
-from ext.context import CustomContext
-from ext.formatter import EmbedHelp
-from collections import defaultdict
-from ext import embedtobox
 import asyncio
 import aiohttp
 import datetime
 import psutil
 import time
 import json
-import sys
-import os
-import re
 import textwrap
 from PIL import Image
 import io
