@@ -2,20 +2,60 @@
 #install above at administrative pc with command/shell
 
 # Work with Python 3.6
+
+'''
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. 
+'''
 import discord
-import random
+from discord.ext import commands
+from ext.context import CustomContext
+from ext.formatter import EmbedHelp
+from collections import defaultdict
+from ext import embedtobox
 import asyncio
 import aiohttp
+import datetime
+import psutil
+import time
 import json
+import sys
+import os
+import re
+import textwrap
+from PIL import Image
+import io
+import random
 from discord import Game
 from discord.ext.commands import Bot
 
-BOT_PREFIX = ("?", "!")
-TOKEN
+BOT_PREFIX = ("?", "!", "d!")
 
-client = Bot(command_prefix=BOT_PREFIX)
+class bot(commands.Bot):
+    '''
+    The below are all snippets codes made by an amateur coder, all horrendous spacings are hence pre-warned -Sylvia
+    '''
+    
+ _mentions_transforms = {
+        '@Alston': '@\Marsupian',
+    }
 
-
+ _mention_pattern = re.compile('|'.join(_mentions_transforms.keys()))
+    
+    
 @client.event
 async def on_message(message):
     # we do not want the bot to reply to itself
