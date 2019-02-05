@@ -30,13 +30,20 @@ import json
 import textwrap
 from PIL import Image
 import io
+import os
 import random
 from discord import Game
 from discord.ext.commands import Bot
+from discord.ext import commands
 
-BOT_PREFIX = ("?", "!", "d!")
+Client = discord.client()
+client = commands.Bot(command_prefix = "!", "d!")
 
+
+
+'''
 class bot(commands.Bot):
+'''
     '''
     The below are all snippets codes made by an amateur coder, all horrendous spacings are hence pre-warned -Sylvia
     '''
@@ -54,8 +61,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!hello'):
-        msg = 'Hello {0.author.mention}'.format(message)
+    if message.content.startswith('!test'):
+        msg = 'Functioning for now... {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
 
 @client.event
@@ -99,4 +106,4 @@ async def list_servers():
         await asyncio.sleep(600)
 
 client.loop.create_task(list_servers())
-client.run(TOKEN)
+client.run(os.getenv('TOKEN'))
